@@ -5,14 +5,19 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
+import static au.chival.lobby.Main.lobby;
+
 public class RideListener implements Listener {
 
     @EventHandler
     public void onEntityClick(PlayerInteractEntityEvent event) {
-        event.getPlayer().sendMessage("This IS the Ride Listener");
+
+        if (event.getPlayer().getWorld() != lobby) {
+            return;
+        }
+
         if (event.getPlayer().getItemInHand().getType() == Material.LEASH) {
             event.getRightClicked().setPassenger(event.getPlayer());
         }
-
     }
 }

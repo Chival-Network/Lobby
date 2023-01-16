@@ -6,12 +6,14 @@ import au.chival.lobby.Cosmetics.GUI.GUI;
 import au.chival.lobby.Cosmetics.Hearts.Hearts;
 import au.chival.lobby.Cosmetics.Ride.RideListener;
 import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
 
     public static Plugin plugin;
+    public static World lobby;
 
     @Override
     public void onEnable() {
@@ -23,6 +25,7 @@ public final class Main extends JavaPlugin {
         plugin = this;
         reg();
 
+        lobby = Bukkit.getWorld("world");
     }
 
     public void reg() {
