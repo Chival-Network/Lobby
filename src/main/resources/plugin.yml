@@ -1,0 +1,8 @@
+name: Lobby
+version: '${project.version}'
+main: au.chival.lobby.Main
+api-version: 1.8.8
+commands:
+  cosmetic:
+    description: /cosmetic
+    aliases: c
