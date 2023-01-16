@@ -15,6 +15,8 @@ import java.util.TimerTask;
 
 public class Hearts {
 
+        private Timer timerTask;
+
         public void startHearts (Player player) {
 
             DecimalFormat df = new DecimalFormat("#.####");
@@ -29,7 +31,7 @@ public class Hearts {
             long TimerSpeed = 85; //the speed in mSec for how fast a new heart appears (decrease for faster)
             //step calculation
             double stepDelta = helixHeight / noOfSteps; // The calculation of each step gabe
-            Timer timerHearts = new Timer("Timer");
+            timerTask = new Timer("Timer");
 
             TimerTask taskDoHeart = new TimerTask() {
                 double y = 0;
@@ -84,7 +86,11 @@ public class Hearts {
                 }
             };
 
-            timerHearts.scheduleAtFixedRate(taskDoHeart, 3000, TimerSpeed);
+            timerTask.scheduleAtFixedRate(taskDoHeart, 3000, TimerSpeed);
+        }
+
+        public void StopHearts() {
+            timerTask.cancel();
         }
     }
 
