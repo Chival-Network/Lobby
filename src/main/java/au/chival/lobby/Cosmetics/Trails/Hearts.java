@@ -4,12 +4,15 @@ import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import static au.chival.lobby.Main.plugin;
 
 public class Hearts {
 
@@ -31,7 +34,8 @@ public class Hearts {
             double stepDelta = helixHeight / noOfSteps; // The calculation of each step gabe
             timerTask = new Timer("Timer");
 
-            TimerTask taskDoHeart = new TimerTask() {
+            //TimerTask taskDoHeart = new TimerTask() {
+            Bukkit.getServer().getScheduler().scheduleAsyncRepeatingTask(plugin, new Runnable() {
                 double y = 0;
 
                 public void run() {
@@ -42,6 +46,9 @@ public class Hearts {
 
                     if (!player.isOnline()) {
                         timerTask.cancel();
+
+
+
                     }
                     double angleRadians = (y * (noOfLoops / helixHeight) * 360) * Math.PI / 180;
                     //p.sendMessage("Y:"+df.format(y)+" Angle:"+df.format(angleRadians));
@@ -85,9 +92,7 @@ public class Hearts {
                 }
 
 
-            };
-
-            timerTask.scheduleAtFixedRate(taskDoHeart, 3000, TimerSpeed);
+            }, 0L, (2));
 
 
 
@@ -95,10 +100,14 @@ public class Hearts {
 
         public void stopHearts() {
             timerTask.cancel();
+
+
+
         }
 
 
     }
-}
+
+
 
 

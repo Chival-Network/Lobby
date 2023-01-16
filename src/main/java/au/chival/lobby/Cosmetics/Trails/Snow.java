@@ -1,4 +1,4 @@
-package au.chival.lobby.Cosmetics.Trails;
+/*package au.chival.lobby.Cosmetics.Trails;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
@@ -102,4 +102,4 @@ public class Snow {
     }
 
 
-
+*/

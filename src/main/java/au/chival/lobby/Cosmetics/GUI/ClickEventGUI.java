@@ -31,7 +31,6 @@ public class ClickEventGUI implements Listener {
         if (event.getSlot() == 0) {
             Trail.put(event.getWhoClicked().getUniqueId(), "Empty");
             Hearts hearts = new Hearts();
-            hearts.StopHearts();
             hearts.stopHearts();
         }
 
@@ -64,3 +63,4 @@ public class ClickEventGUI implements Listener {
 
     }
 }
+
