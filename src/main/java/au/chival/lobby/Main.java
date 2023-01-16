@@ -3,7 +3,6 @@ package au.chival.lobby;
 import au.chival.lobby.Cosmetics.GUI.ClickEventGUI;
 import au.chival.lobby.Cosmetics.GUI.Cosmetic;
 import au.chival.lobby.Cosmetics.GUI.GUI;
-import au.chival.lobby.Cosmetics.Hearts.Hearts;
 import au.chival.lobby.Cosmetics.Ride.RideListener;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -34,7 +33,6 @@ public final class Main extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new ClickEventGUI(), this);
         Bukkit.getPluginManager().registerEvents(new RideListener(),this);
-        Bukkit.getPluginManager().registerEvents(new Hearts(),this);
 
     }
 

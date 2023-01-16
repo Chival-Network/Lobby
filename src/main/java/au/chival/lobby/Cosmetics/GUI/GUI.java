@@ -29,8 +29,16 @@ public class GUI {
         inv.setItem(3, item);
         setInventory(inv);
 
-        //Close button
+
         item.setType(Material.BARRIER);
+        meta.setDisplayName(ChatColor.RED + "RESET TRAIL");
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+        inv.setItem(0, item);
+        setInventory(inv);
+
+        //Close button
+        item.setType(Material.ARROW);
         meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Close Menu");
         lore.clear();
         meta.setLore(lore);

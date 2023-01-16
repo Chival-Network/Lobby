@@ -1,14 +1,13 @@
 package au.chival.lobby.Cosmetics.GUI;
 
+import au.chival.lobby.Cosmetics.Trails.Hearts;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.List;
+import static au.chival.lobby.Cosmetics.GUI.Cosmetic.Trail;
 
 public class ClickEventGUI implements Listener {
 
@@ -29,8 +28,19 @@ public class ClickEventGUI implements Listener {
 
         Player player = (Player) event.getWhoClicked();
 
+        if (event.getSlot() == 0) {
+            Trail.put(event.getWhoClicked().getUniqueId(), "Empty");
+            Hearts hearts = new Hearts();
+            hearts.StopHearts();
+            hearts.stopHearts();
+        }
+
         if (event.getSlot() == 3) {
-            //particle
+            Trail.put(event.getWhoClicked().getUniqueId(), "Heart");
+            Hearts hearts = new Hearts();
+            hearts.startHearts(player);
+
+
         }
 
         if (event.getSlot() == 8) {

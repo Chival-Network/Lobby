@@ -1,23 +1,20 @@
-package au.chival.lobby.Cosmetics.Hearts;
+package au.chival.lobby.Cosmetics.Trails;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.*;
 
 import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Hearts {
+public class Snow {
 
-        private Timer timerTask;
+        public Timer timerTask;
 
-        public void startHearts (Player player) {
+        public void startSnow (Player player) {
 
             DecimalFormat df = new DecimalFormat("#.####");
             Location loc = player.getLocation();
@@ -33,7 +30,7 @@ public class Hearts {
             double stepDelta = helixHeight / noOfSteps; // The calculation of each step gabe
             timerTask = new Timer("Timer");
 
-            TimerTask taskDoHeart = new TimerTask() {
+            TimerTask taskDoSnow = new TimerTask() {
                 double y = 0;
 
                 public void run() {
@@ -78,19 +75,31 @@ public class Hearts {
 
                     if (!isvanishedfromsomeone) {
 
-                        player.getWorld().playEffect(loc, Effect.HEART, null);
+                        player.getWorld().playEffect(loc, Effect.CRIT, null);
 
                     }
                     if (y > helixHeight) y = 0;
                     y += stepDelta;     // move to the next step
+
                 }
+
+
             };
 
             timerTask.scheduleAtFixedRate(taskDoHeart, 3000, TimerSpeed);
+
+
+
+        }
+
+        public void stopHearts() {
+            timerTask.cancel();
         }
 
         public void StopHearts() {
-            timerTask.cancel();
+
         }
     }
+
+
 
