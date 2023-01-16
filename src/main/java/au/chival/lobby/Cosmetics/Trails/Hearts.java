@@ -16,40 +16,47 @@ import static au.chival.lobby.Main.plugin;
 
 public class Hearts {
 
-        public Timer timerTask;
+    public Timer timerTask;
 
-        public void startHearts (Player player) {
 
-            DecimalFormat df = new DecimalFormat("#.####");
-            Location loc = player.getLocation();
+    public static BukkitRunnable heartRun;
 
-            //Constants - Adjust as needed
-            double radius = 1;      //Radius in the x and z direction
-            double helixHeight = 1; //Height in the y direction
-            double noOfSteps = 10; //time/increments for each item
-            double noOfLoops = 1; //number of times the helix should loop by time it gets to the helixHeight
-            double helixBase = 0.25; //how far UP the helix begins
-            long TimerSpeed = 85; //the speed in mSec for how fast a new heart appears (decrease for faster)
-            //step calculation
-            double stepDelta = helixHeight / noOfSteps; // The calculation of each step gabe
-            timerTask = new Timer("Timer");
+    public void startHearts(Player player) {
 
-            //TimerTask taskDoHeart = new TimerTask() {
-            Bukkit.getServer().getScheduler().scheduleAsyncRepeatingTask(plugin, new Runnable() {
-                double y = 0;
+        DecimalFormat df = new DecimalFormat("#.####");
+        Location loc = player.getLocation();
 
-                public void run() {
+        //Constants - Adjust as needed
+        double radius = 1;      //Radius in the x and z direction
+        double helixHeight = 1; //Height in the y direction
+        double noOfSteps = 10; //time/increments for each item
+        double noOfLoops = 1; //number of times the helix should loop by time it gets to the helixHeight
+        double helixBase = 0.25; //how far UP the helix begins
+        long TimerSpeed = 85; //the speed in mSec for how fast a new heart appears (decrease for faster)
+        //step calculation
+        double stepDelta = helixHeight / noOfSteps; // The calculation of each step gabe
+        timerTask = new Timer("Timer");
+
+        //TimerTask taskDoHeart = new TimerTask() {
+        heartRun = (BukkitRunnable) new BukkitRunnable() {
+
+            double y = 0;
+
+            public void run() {
+
+                while (true) {
+
+
+                    if (!player.isOnline()) {
+                        heartRun.cancel();
+
+
+                    }
                     //p.sendMessage("C:"+count);
                     double playX = player.getLocation().getX();
                     double playY = player.getLocation().getY();
                     double playZ = player.getLocation().getZ();
 
-                    if (!player.isOnline()) {
-                        timerTask.cancel();
-
-
-
-                    }
                     double angleRadians = (y * (noOfLoops / helixHeight) * 360) * Math.PI / 180;
                     //p.sendMessage("Y:"+df.format(y)+" Angle:"+df.format(angleRadians));
                     double x = radius * Math.cos(angleRadians);
@@ -77,6 +84,11 @@ public class Hearts {
                                 //Player is vanished, so flag to not show hearts
                                 isvanishedfromsomeone = true;
 
+                                try {
+                                    wait(100);
+                                } catch (InterruptedException e) {
+                                    throw new RuntimeException(e);
+
                             }
                         }
                     }
@@ -89,25 +101,25 @@ public class Hearts {
                     if (y > helixHeight) y = 0;
                     y += stepDelta;     // move to the next step
 
+
+
+                    }
+
+
+
                 }
 
-
-            }, 0L, (2));
-
+            }
 
 
-        }
-
-        public void stopHearts() {
-            timerTask.cancel();
-
-
-
-        }
-
+        }.runTaskLaterAsynchronously(plugin, 1000);
 
     }
 
+    public void stopHearts() {
+        heartRun.cancel();
+    }
+}
 
 
 

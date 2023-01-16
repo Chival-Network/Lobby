@@ -29,13 +29,13 @@ public class ClickEventGUI implements Listener {
         Player player = (Player) event.getWhoClicked();
 
         if (event.getSlot() == 0) {
-            Trail.put(event.getWhoClicked().getUniqueId(), "Empty");
+            //Trail.put(event.getWhoClicked().getUniqueId(), "Empty");
             Hearts hearts = new Hearts();
             hearts.stopHearts();
         }
 
         if (event.getSlot() == 3) {
-            Trail.put(event.getWhoClicked().getUniqueId(), "Heart");
+            //Trail.put(event.getWhoClicked().getUniqueId(), "Heart");
             Hearts hearts = new Hearts();
             hearts.startHearts(player);
 
