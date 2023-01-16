@@ -43,7 +43,7 @@ public class Hearts {
                     double playZ = player.getLocation().getZ();
 
                     if (!player.isOnline()) {
-                        timerHearts.cancel();
+                        timerTask.cancel();
                     }
                     double angleRadians = (y * (noOfLoops / helixHeight) * 360) * Math.PI / 180;
                     //p.sendMessage("Y:"+df.format(y)+" Angle:"+df.format(angleRadians));
