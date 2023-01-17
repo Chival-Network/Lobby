@@ -37,8 +37,6 @@ public class Crit {
         DecimalFormat df = new DecimalFormat("#.####");
         Location loc = player.getLocation();
 
-        allTasks.add(critRun);
-
         //timerTask = new Timer("Timer");
         //TimerTask taskDoHeart = new TimerTask() {
         critRun = (BukkitRunnable) new BukkitRunnable() {
@@ -90,6 +88,9 @@ public class Crit {
                 y += stepDelta;     // move to the next step
             }
         };
+
+        allTasks.add(critRun);
+
         if (debug) log.info(ChatColor.RED +"[Crit] runTaskTimer");
         critRun.runTaskTimer(plugin, 0L, 1L);
 

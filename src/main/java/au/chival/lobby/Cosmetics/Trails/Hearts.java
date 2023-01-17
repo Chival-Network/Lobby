@@ -39,8 +39,6 @@ public class Hearts {
         DecimalFormat df = new DecimalFormat("#.####");
         Location loc = player.getLocation();
 
-        allTasks.add(heartRun);
-
         //timerTask = new Timer("Timer");
         //TimerTask taskDoHeart = new TimerTask() {
         heartRun = (BukkitRunnable) new BukkitRunnable() {
@@ -92,6 +90,9 @@ public class Hearts {
                 y += stepDelta;     // move to the next step
             }
         };
+
+        allTasks.add(heartRun);
+
         if (debug) log.info(ChatColor.RED +"[Hearts] runTaskTimer");
         heartRun.runTaskTimer(plugin, 0L, 5L);
 

@@ -8,6 +8,14 @@ public class Manager {
     public static LinkedList<BukkitRunnable> allTasks = new LinkedList<>();
 
     public static void stopAll() {
-        allTasks.forEach(BukkitRunnable::cancel);
+        allTasks.forEach(value -> {
+            if (value == null) {
+                allTasks.remove(value);
+                System.out.println("removed " + value.getTaskId());
+                return;
+            }
+            value.cancel();
+            System.out.println("canceled " + value.getTaskId());
+        });
     }
 }

@@ -9,6 +9,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 
 import static au.chival.lobby.Cosmetics.GUI.Cosmetic.Trail;
+import static au.chival.lobby.Cosmetics.Trails.Manager.stopAll;
 
 public class ClickEventGUI implements Listener {
 
@@ -34,13 +35,7 @@ public class ClickEventGUI implements Listener {
         Player player = (Player) event.getWhoClicked();
 
         if (event.getSlot() == 0) {
-            //Trail.put(event.getWhoClicked().getUniqueId(), "Empty");
-
-            crit.stopCrit();
-
-            hearts.stopHearts();
-
-
+            stopAll();
         }
 
         if (event.getSlot() == 1) {
