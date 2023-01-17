@@ -14,6 +14,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Logger;
 
+import static au.chival.lobby.Cosmetics.Trails.Manager.allTasks;
 import static au.chival.lobby.Main.plugin;
 import static java.lang.Thread.sleep;
 
@@ -37,6 +38,8 @@ public class Hearts {
         if (debug) log.info(ChatColor.RED +"[Hearts] startHearts");
         DecimalFormat df = new DecimalFormat("#.####");
         Location loc = player.getLocation();
+
+        allTasks.add(heartRun);
 
         //timerTask = new Timer("Timer");
         //TimerTask taskDoHeart = new TimerTask() {

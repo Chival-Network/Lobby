@@ -11,6 +11,7 @@ import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.logging.Logger;
 
+import static au.chival.lobby.Cosmetics.Trails.Manager.allTasks;
 import static au.chival.lobby.Main.plugin;
 import static java.lang.Thread.sleep;
 
@@ -35,6 +36,8 @@ public class Crit {
         if (debug) log.info(ChatColor.RED +"[Crit] startCrit");
         DecimalFormat df = new DecimalFormat("#.####");
         Location loc = player.getLocation();
+
+        allTasks.add(critRun);
 
         //timerTask = new Timer("Timer");
         //TimerTask taskDoHeart = new TimerTask() {
