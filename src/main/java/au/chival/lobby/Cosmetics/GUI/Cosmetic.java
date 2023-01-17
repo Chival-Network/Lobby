@@ -18,9 +18,6 @@ public class Cosmetic implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String c, String[] args) {
 
 
-
-            sender.sendMessage("Welcome Player!");
-
             if (!(sender instanceof Player)) {
                 sender.sendMessage(ChatColor.RED + "You Cannot Do This!");
                 return true;

@@ -1,5 +1,6 @@
 package au.chival.lobby.Cosmetics.GUI;
 
+import au.chival.lobby.Cosmetics.Trails.Crit;
 import au.chival.lobby.Cosmetics.Trails.Hearts;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,6 +13,10 @@ import static au.chival.lobby.Cosmetics.GUI.Cosmetic.Trail;
 public class ClickEventGUI implements Listener {
 
     private GUI menu;
+    private Hearts hearts = new Hearts();
+    private Crit crit = new Crit();
+
+
     public ClickEventGUI() {
         menu = new GUI();
     }
@@ -30,14 +35,22 @@ public class ClickEventGUI implements Listener {
 
         if (event.getSlot() == 0) {
             //Trail.put(event.getWhoClicked().getUniqueId(), "Empty");
-            Hearts hearts = new Hearts();
+
+            crit.stopCrit();
+
             hearts.stopHearts();
+
+
+        }
+
+        if (event.getSlot() == 1) {
+            crit.startCrit(player);
         }
 
         if (event.getSlot() == 3) {
             //Trail.put(event.getWhoClicked().getUniqueId(), "Heart");
-            Hearts hearts = new Hearts();
             hearts.startHearts(player);
+
 
 
         }

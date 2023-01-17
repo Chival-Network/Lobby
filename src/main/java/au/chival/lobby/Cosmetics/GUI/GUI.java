@@ -37,6 +37,15 @@ public class GUI {
         inv.setItem(0, item);
         setInventory(inv);
 
+        item.setType(Material.IRON_SWORD);
+        meta.setDisplayName(ChatColor.AQUA + "Crit Particle Pack");
+        lore.clear();
+        lore.add(ChatColor.YELLOW + "Click To Select");
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+        inv.setItem(1, item);
+        setInventory(inv);
+
         //Close button
         item.setType(Material.ARROW);
         meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Close Menu");
