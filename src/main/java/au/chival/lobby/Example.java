@@ -2,8 +2,6 @@ package au.chival.lobby;
 
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.sql.SQLOutput;
-
 import static au.chival.lobby.Main.plugin;
 
 public class Example {

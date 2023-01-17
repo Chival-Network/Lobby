@@ -11,9 +11,8 @@ import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.logging.Logger;
 
-import static au.chival.lobby.Cosmetics.Trails.Manager.allTasks;
+import static au.chival.lobby.Cosmetics.Trails.Manager.currentParticles;
 import static au.chival.lobby.Main.plugin;
-import static java.lang.Thread.sleep;
 
 public class Crit {
 
@@ -89,7 +88,7 @@ public class Crit {
             }
         };
 
-        allTasks.add(critRun);
+        currentParticles.get(player).add(critRun);
 
         if (debug) log.info(ChatColor.RED +"[Crit] runTaskTimer");
         critRun.runTaskTimer(plugin, 0L, 1L);

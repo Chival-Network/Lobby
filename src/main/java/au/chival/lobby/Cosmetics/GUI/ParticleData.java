@@ -2,7 +2,6 @@ package au.chival.lobby.Cosmetics.GUI;
 
 import org.bukkit.Bukkit;
 
-import java.nio.Buffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;

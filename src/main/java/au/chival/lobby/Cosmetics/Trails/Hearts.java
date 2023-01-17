@@ -9,14 +9,10 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.text.DecimalFormat;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.logging.Logger;
 
-import static au.chival.lobby.Cosmetics.Trails.Manager.allTasks;
+import static au.chival.lobby.Cosmetics.Trails.Manager.currentParticles;
 import static au.chival.lobby.Main.plugin;
-import static java.lang.Thread.sleep;
 
 public class Hearts {
 
@@ -91,7 +87,7 @@ public class Hearts {
             }
         };
 
-        allTasks.add(heartRun);
+        currentParticles.get(player).add(heartRun);
 
         if (debug) log.info(ChatColor.RED +"[Hearts] runTaskTimer");
         heartRun.runTaskTimer(plugin, 0L, 5L);
