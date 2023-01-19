@@ -12,9 +12,10 @@ import java.util.Collection;
 import java.util.logging.Logger;
 
 import static au.chival.lobby.Cosmetics.Trails.Manager.currentParticles;
+import static au.chival.lobby.Cosmetics.Trails.Manager.stopAll;
 import static au.chival.lobby.Main.plugin;
 
-public class Crit {
+public class Snow {
 
     //Constants - Adjust as needed
     boolean debug = true; // DO NOT DELETE log lines. Change to false to turn off log messages
@@ -29,22 +30,23 @@ public class Crit {
     //step calculation
     double stepDelta = helixHeight / noOfSteps; // The calculation of each step gabe
 
-    public BukkitRunnable critRun;
+    public BukkitRunnable snowRun;
 
-    public void startCrit(Player player) {
+    public void startSnow(Player player) {
+        stopAll(player);
         if (debug) log.info(ChatColor.RED +"[Crit] startCrit");
         DecimalFormat df = new DecimalFormat("#.####");
         Location loc = player.getLocation();
 
         //timerTask = new Timer("Timer");
         //TimerTask taskDoHeart = new TimerTask() {
-        critRun = (BukkitRunnable) new BukkitRunnable() {
+        snowRun = (BukkitRunnable) new BukkitRunnable() {
             double y = 0;
 
             public void run() {
                 if (!player.isOnline()) {
                     cancel();
-                    critRun = null;
+                    snowRun = null;
                 }
                 //p.sendMessage("C:"+count);
                 double playX = player.getLocation().getX();
@@ -88,20 +90,20 @@ public class Crit {
             }
         };
 
-        currentParticles.get(player).add(critRun);
+        currentParticles.get(player).add(snowRun);
 
         if (debug) log.info(ChatColor.RED +"[Crit] runTaskTimer");
-        critRun.runTaskTimer(plugin, 0L, 1L);
+        snowRun.runTaskTimer(plugin, 0L, 1L);
 
-        if (debug) log.info(ChatColor.RED +"[Crit] TaskID:"+ critRun.getTaskId());
+        if (debug) log.info(ChatColor.RED +"[Crit] TaskID:"+ snowRun.getTaskId());
     }
 
-    public void stopCrit() {
+    public void stopSnow() {
         if (debug) log.info(ChatColor.RED +"[Crit] stopCrit" );
-        if (debug) log.info(ChatColor.RED +"[Crit] TaskID:"+ critRun.getTaskId());
-        critRun.cancel();
+        if (debug) log.info(ChatColor.RED +"[Crit] TaskID:"+ snowRun.getTaskId());
+        snowRun.cancel();
         if (debug) log.info(ChatColor.RED +"[Crit] cancel");
-        critRun = null;
+        snowRun = null;
         if (debug) log.info(ChatColor.RED +"[Crit] null");
     }
 
