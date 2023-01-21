@@ -61,18 +61,21 @@ public class ProfileGui implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent event) {
         if (event.getClickedInventory().getTitle() == title) {
-            //
-            if (Objects.equals(event.getCurrentItem().getItemMeta().getDisplayName(), ChatColor.RED + "Exit")) {
-                event.getWhoClicked().closeInventory();
-                return;
-            }
-            if (Objects.equals(event.getCurrentItem().getItemMeta().getDisplayName(), ChatColor.AQUA + "Cosmetics")) {
-                event.getWhoClicked().closeInventory();
-                ((Player) event.getWhoClicked()).chat("/cosmetics");
-                return;
-            }
-            //
             event.setCancelled(true);
+            //
+            switch (event.getSlot()) {
+                case 8:
+                    event.getWhoClicked().closeInventory();
+                    return;
+                case 13:
+                    event.getWhoClicked().closeInventory();
+                    event.setCancelled(true);
+                    ((Player) event.getWhoClicked()).chat("/c");
+                    return;
+                default:
+                    return;
+            }
+            //
         }
     }
 }

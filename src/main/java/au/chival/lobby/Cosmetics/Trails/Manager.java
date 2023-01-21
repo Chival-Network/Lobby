@@ -19,7 +19,6 @@ public class Manager {
                 return;
             }
             value.cancel();
-            System.out.println("canceled " + value.getTaskId());
         });
     }
 }
