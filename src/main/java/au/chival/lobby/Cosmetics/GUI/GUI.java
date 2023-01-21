@@ -25,7 +25,7 @@ public class GUI {
         lore.add(ChatColor.YELLOW + "Click to Select!");
         meta.setLore(lore);
         item.setItemMeta(meta);
-        inv.setItem(3, item);
+        inv.setItem(0, item);
         setInventory(inv);
 
 
@@ -33,7 +33,14 @@ public class GUI {
         meta.setDisplayName(ChatColor.RED + "RESET TRAIL");
         meta.setLore(lore);
         item.setItemMeta(meta);
-        inv.setItem(0, item);
+        inv.setItem(22, item);
+        setInventory(inv);
+
+        item.setType(Material.REDSTONE);
+        meta.setDisplayName(ChatColor.AQUA + "Blood Particle Pack");
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+        inv.setItem(2, item);
         setInventory(inv);
 
         item.setType(Material.IRON_SWORD);
@@ -51,7 +58,7 @@ public class GUI {
         lore.clear();
         meta.setLore(lore);
         item.setItemMeta(meta);
-        inv.setItem(8, item);
+        inv.setItem(23, item);
 
 
         /*item = new ItemStack(Material.IRON_SWORD);
