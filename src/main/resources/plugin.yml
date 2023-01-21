@@ -3,6 +3,13 @@ version: '${project.version}'
 main: au.chival.lobby.Main
 api-version: 1.8.8
 commands:
-  cosmetic:
+  cosmetics:
     description: /cosmetic
     aliases: c
+  profile:
+    description: /profile
+    aliases: p
+
+permissions:
+  chiva.lobby.profile:
+    default: true

@@ -37,7 +37,7 @@ public class Hearts {
 
         //timerTask = new Timer("Timer");
         //TimerTask taskDoHeart = new TimerTask() {
-        heartRun = (BukkitRunnable) new BukkitRunnable() {
+        heartRun = new BukkitRunnable() {
             double y = 0;
 
             public void run() {
