@@ -24,6 +24,7 @@ public class Cosmetic implements CommandExecutor {
             }
             Player player = (Player) sender;
             GUI menu = new GUI();
+            menu.register();
             menu.openInventory(player);
 
             return true;

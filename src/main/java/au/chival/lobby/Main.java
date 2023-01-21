@@ -1,6 +1,7 @@
 package au.chival.lobby;
 
-import au.chival.lobby.Profile.Profile;
+import au.chival.lobby.Cosmetics.CosmeticsReg;
+import au.chival.lobby.Profile.ProfileReg;
 import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,9 +15,8 @@ public final class Main extends JavaPlugin {
         plugin = this;
 
         //reg
-        new Profile();
-
-        //new Cosmetic();
+        new ProfileReg();
+        new CosmeticsReg();
 
     }
 

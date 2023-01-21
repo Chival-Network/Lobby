@@ -18,7 +18,7 @@ import static au.chival.lobby.Main.plugin;
 public class Hearts {
 
     //Constants - Adjust as needed
-    boolean debug = true; // DO NOT DELETE log lines. Change to false to turn off log messages
+    boolean debug = false; // DO NOT DELETE log lines. Change to false to turn off log messages
     Logger log = Bukkit.getLogger();
     double radius = 1;      //Radius in the x and z direction
     double helixHeight = 1; //Height in the y direction
@@ -40,7 +40,7 @@ public class Hearts {
 
         //timerTask = new Timer("Timer");
         //TimerTask taskDoHeart = new TimerTask() {
-        heartRun = new BukkitRunnable() {
+        heartRun = (BukkitRunnable) new BukkitRunnable() {
             double y = 0;
 
             public void run() {

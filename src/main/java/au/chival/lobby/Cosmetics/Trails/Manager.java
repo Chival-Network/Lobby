@@ -10,10 +10,12 @@ public class Manager {
     public static LinkedHashMap<Player, LinkedList<BukkitRunnable>> currentParticles = new LinkedHashMap<>();
 
     public static void stopAll(Player player) {
+        if (currentParticles.get(player) == null) {
+            return;
+        }
         currentParticles.get(player).forEach(value -> {
             if (value == null) {
                 currentParticles.get(player).remove(value);
-                System.out.println("removed " + value.getTaskId());
                 return;
             }
             value.cancel();
