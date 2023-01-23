@@ -1,4 +1,4 @@
-package au.chival.lobby.Profile;
+package au.chival.lobby.profile;
 
 import static au.chival.lobby.Main.plugin;
 

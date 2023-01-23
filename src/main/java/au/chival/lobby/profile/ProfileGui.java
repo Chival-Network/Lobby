@@ -1,5 +1,6 @@
-package au.chival.lobby.Profile;
+package au.chival.lobby.profile;
 
+import au.chival.lobby.adminBoard.AdminBoardGUI;
 import net.luckperms.api.LuckPermsProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -7,18 +8,12 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryInteractEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Random;
 
 import static au.chival.lobby.InventoryLib.makeItem;
 
@@ -26,10 +21,10 @@ public class ProfileGui implements Listener {
 
     public ProfileGui() {}
 
-    public static String title;
+    static String title;
 
     public ProfileGui(Player player) {
-        title = ChatColor.GREEN + player.getName() + ChatColor.AQUA + "'s profile";
+        title = (ChatColor.GREEN + player.getName() + ChatColor.AQUA + "'s profile");
         Inventory inventory = Bukkit.createInventory(player, 45, title);
         List<String> loreholder = new LinkedList<>();
         ItemStack filler = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 15);
@@ -55,17 +50,32 @@ public class ProfileGui implements Listener {
         loreholder.clear();
         //
 
+        // AdminBoard
+        if (player.hasPermission("chival.lobby.adminboard")) {
+            inventory.setItem(7, makeItem(Material.REDSTONE, ChatColor.AQUA + "Admin Board", loreholder, 1));
+            loreholder.clear();
+        }
+        //
+
         player.openInventory(inventory);
     }
 
     @EventHandler
     public void onClick(InventoryClickEvent event) {
+
+        if (event.getClickedInventory() == null) {return;}
+
         if (event.getClickedInventory().getTitle() == title) {
+
             event.setCancelled(true);
-            //
+
             switch (event.getSlot()) {
                 case 8:
                     event.getWhoClicked().closeInventory();
+                    return;
+                case 7:
+                    event.getWhoClicked().closeInventory();
+                    new AdminBoardGUI((Player) event.getWhoClicked());
                     return;
                 case 13:
                     event.getWhoClicked().closeInventory();
@@ -75,7 +85,7 @@ public class ProfileGui implements Listener {
                 default:
                     return;
             }
-            //
+
         }
     }
 }

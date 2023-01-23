@@ -1,4 +1,4 @@
-package au.chival.lobby.Cosmetics.Ride;
+package au.chival.lobby.cosmetics.Ride;
 
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;

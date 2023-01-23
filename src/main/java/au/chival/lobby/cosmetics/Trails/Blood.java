@@ -1,4 +1,4 @@
-package au.chival.lobby.Cosmetics.Trails;
+package au.chival.lobby.cosmetics.Trails;
 
 import org.bukkit.*;
 import org.bukkit.entity.Player;
@@ -8,8 +8,8 @@ import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.logging.Logger;
 
-import static au.chival.lobby.Cosmetics.Trails.Manager.currentParticles;
-import static au.chival.lobby.Cosmetics.Trails.Manager.stopAll;
+import static au.chival.lobby.cosmetics.Trails.Manager.currentParticles;
+import static au.chival.lobby.cosmetics.Trails.Manager.stopAll;
 import static au.chival.lobby.Main.plugin;
 
 public class Blood {

@@ -1,15 +1,15 @@
-package au.chival.lobby.Cosmetics.GUI;
+package au.chival.lobby.cosmetics.GUI;
 
-import au.chival.lobby.Cosmetics.Trails.Blood;
-import au.chival.lobby.Cosmetics.Trails.Snow;
-import au.chival.lobby.Cosmetics.Trails.Hearts;
+import au.chival.lobby.cosmetics.Trails.Blood;
+import au.chival.lobby.cosmetics.Trails.Snow;
+import au.chival.lobby.cosmetics.Trails.Hearts;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 
-import static au.chival.lobby.Cosmetics.Trails.Manager.stopAll;
+import static au.chival.lobby.cosmetics.Trails.Manager.stopAll;
 
 public class ClickEventGUI implements Listener {
 
@@ -56,7 +56,7 @@ public class ClickEventGUI implements Listener {
 
         }
 
-        if (event.getSlot() == 23) {
+        if (event.getSlot() == 8) {
             player.closeInventory();
         }
 

@@ -1,4 +1,4 @@
-package au.chival.lobby.Cosmetics.GUI;
+package au.chival.lobby.cosmetics.GUI;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -29,7 +29,7 @@ public class GUI {
         setInventory(inv);
 
 
-        item.setType(Material.BARRIER);
+        item.setType(Material.ARROW);
         meta.setDisplayName(ChatColor.RED + "RESET TRAIL");
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -53,12 +53,12 @@ public class GUI {
         setInventory(inv);
 
         //Close button
-        item.setType(Material.ARROW);
+        item.setType(Material.BARRIER);
         meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Close Menu");
         lore.clear();
         meta.setLore(lore);
         item.setItemMeta(meta);
-        inv.setItem(23, item);
+        inv.setItem(8, item);
 
 
         /*item = new ItemStack(Material.IRON_SWORD);

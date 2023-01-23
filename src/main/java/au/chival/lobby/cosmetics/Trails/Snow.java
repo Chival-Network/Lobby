@@ -1,4 +1,4 @@
-package au.chival.lobby.Cosmetics.Trails;
+package au.chival.lobby.cosmetics.Trails;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -11,11 +11,11 @@ import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.logging.Logger;
 
-import static au.chival.lobby.Cosmetics.Trails.Manager.currentParticles;
-import static au.chival.lobby.Cosmetics.Trails.Manager.stopAll;
+import static au.chival.lobby.cosmetics.Trails.Manager.currentParticles;
+import static au.chival.lobby.cosmetics.Trails.Manager.stopAll;
 import static au.chival.lobby.Main.plugin;
 
-public class Hearts {
+public class Snow {
 
     //Constants - Adjust as needed
     boolean debug = false; // DO NOT DELETE log lines. Change to false to turn off log messages
@@ -23,30 +23,30 @@ public class Hearts {
     double radius = 1;      //Radius in the x and z direction
     double helixHeight = 1; //Height in the y direction
     double noOfSteps = 10; //time/increments for each item
-    double noOfLoops = 1; //number of times the helix should loop by time it gets to the helixHeight
+    double noOfLoops = 5; //number of times the helix should loop by time it gets to the helixHeight
     double helixBase = 0.25; //how far UP the helix begins
+
     long TimerSpeed = 85; //the speed in mSec for how fast a new heart appears (decrease for faster)
     //step calculation
     double stepDelta = helixHeight / noOfSteps; // The calculation of each step gabe
 
-    public BukkitRunnable heartRun;
+    public BukkitRunnable snowRun;
 
-    public void startHearts(Player player) {
+    public void startSnow(Player player) {
         stopAll(player);
-
-        if (debug) log.info(ChatColor.RED +"[Hearts] startHearts");
+        if (debug) log.info(ChatColor.RED +"[Crit] startCrit");
         DecimalFormat df = new DecimalFormat("#.####");
         Location loc = player.getLocation();
 
         //timerTask = new Timer("Timer");
         //TimerTask taskDoHeart = new TimerTask() {
-        heartRun = (BukkitRunnable) new BukkitRunnable() {
+        snowRun = (BukkitRunnable) new BukkitRunnable() {
             double y = 0;
 
             public void run() {
                 if (!player.isOnline()) {
                     cancel();
-                    heartRun = null;
+                    snowRun = null;
                 }
                 //p.sendMessage("C:"+count);
                 double playX = player.getLocation().getX();
@@ -83,28 +83,28 @@ public class Hearts {
                     }
                 }
                 if (!isvanishedfromsomeone) {
-                    player.getWorld().playEffect(loc, Effect.HEART, null);
+                    player.getWorld().playEffect(loc, Effect.SNOWBALL_BREAK, null);
                 }
                 if (y > helixHeight) y = 0;
                 y += stepDelta;     // move to the next step
             }
         };
 
-        currentParticles.get(player).add(heartRun);
+        currentParticles.get(player).add(snowRun);
 
-        if (debug) log.info(ChatColor.RED +"[Hearts] runTaskTimer");
-        heartRun.runTaskTimer(plugin, 0L, 5L);
+        if (debug) log.info(ChatColor.RED +"[Crit] runTaskTimer");
+        snowRun.runTaskTimer(plugin, 0L, 1L);
 
-        if (debug) log.info(ChatColor.RED +"[Hearts] TaskID:"+ heartRun.getTaskId());
+        if (debug) log.info(ChatColor.RED +"[Crit] TaskID:"+ snowRun.getTaskId());
     }
 
-    public void stopHearts() {
-        if (debug) log.info(ChatColor.RED +"[Hearts] stopHearts" );
-        if (debug) log.info(ChatColor.RED +"[Hearts] TaskID:"+ heartRun.getTaskId());
-        heartRun.cancel();
-        if (debug) log.info(ChatColor.RED +"[Hearts] cancel");
-        heartRun = null;
-        if (debug) log.info(ChatColor.RED +"[Hearts] null");
+    public void stopSnow() {
+        if (debug) log.info(ChatColor.RED +"[Crit] stopCrit" );
+        if (debug) log.info(ChatColor.RED +"[Crit] TaskID:"+ snowRun.getTaskId());
+        snowRun.cancel();
+        if (debug) log.info(ChatColor.RED +"[Crit] cancel");
+        snowRun = null;
+        if (debug) log.info(ChatColor.RED +"[Crit] null");
     }
 
 

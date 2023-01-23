@@ -1,4 +1,4 @@
-package au.chival.lobby.Cosmetics.Trails;
+package au.chival.lobby.cosmetics.Trails;
 
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;

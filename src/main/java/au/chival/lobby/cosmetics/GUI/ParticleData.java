@@ -1,4 +1,4 @@
-package au.chival.lobby.Cosmetics.GUI;
+package au.chival.lobby.cosmetics.GUI;
 
 import org.bukkit.Bukkit;
 

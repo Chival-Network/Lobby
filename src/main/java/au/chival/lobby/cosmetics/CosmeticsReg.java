@@ -1,9 +1,9 @@
-package au.chival.lobby.Cosmetics;
+package au.chival.lobby.cosmetics;
 
-import au.chival.lobby.Cosmetics.GUI.ClickEventGUI;
-import au.chival.lobby.Cosmetics.GUI.Cosmetic;
-import au.chival.lobby.Cosmetics.Ride.RideListener;
-import au.chival.lobby.Cosmetics.onJoin.onJoinEvent;
+import au.chival.lobby.cosmetics.GUI.ClickEventGUI;
+import au.chival.lobby.cosmetics.GUI.Cosmetic;
+import au.chival.lobby.cosmetics.Ride.RideListener;
+import au.chival.lobby.cosmetics.onJoin.onJoinEvent;
 import org.bukkit.Bukkit;
 
 import static au.chival.lobby.Main.plugin;

@@ -1,15 +1,13 @@
-package au.chival.lobby.Profile;
+package au.chival.lobby.profile;
 
 import au.chival.lobby.CommandBase;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class ProfileCommand extends CommandBase {
     public ProfileCommand(String name) {
-        super(name, false, "chival.lobby.profile");
+        super(name, false, null);
     }
 
     @Override
