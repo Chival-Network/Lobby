@@ -1,9 +1,11 @@
-package au.chival.lobby;
+package au.chival.lobby.util;
 
+import au.chival.lobby.util.I18n;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Collections;
 import java.util.List;
 
 import static au.chival.lobby.Main.plugin;
@@ -50,7 +52,7 @@ public abstract class CommandBase {
 	public abstract void execute(CommandSender sender, Command command, String label, String[] args);
 
 	public List<String> tabComplete(CommandSender sender, Command command, String[] args) {
-		return null;
+		return Collections.EMPTY_LIST;
 	}
 
 	protected String tl(String key, Object... args) {

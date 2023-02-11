@@ -1,4 +1,4 @@
-package au.chival.lobby;
+package au.chival.lobby.util;
 
 import org.bukkit.ChatColor;
 

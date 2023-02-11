@@ -14,8 +14,6 @@ public class onJoinEvent implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        event.getPlayer().teleport(new Location(Bukkit.getWorld("Hub2"), -2492.5, 108, -534.5, -90, 0));
-
         currentParticles.put(event.getPlayer(), new LinkedList<>());
     }
 }

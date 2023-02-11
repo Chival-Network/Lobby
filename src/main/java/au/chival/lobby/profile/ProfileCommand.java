@@ -1,6 +1,6 @@
 package au.chival.lobby.profile;
 
-import au.chival.lobby.CommandBase;
+import au.chival.lobby.util.CommandBase;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

@@ -15,7 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.LinkedList;
 import java.util.List;
 
-import static au.chival.lobby.InventoryLib.makeItem;
+import static au.chival.lobby.util.InventoryLib.makeItem;
 
 public class ProfileGui implements Listener {
 

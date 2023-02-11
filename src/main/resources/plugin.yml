@@ -14,9 +14,16 @@ commands:
   setspawn:
     description: /setspawn
     aliases: ss
+  spawn:
+    description: /spawn
+    aliases: s
 
 permissions:
-  chiva.lobby.setspawn:
-    default: true
+  chival.lobby.setspawn:
+    default: false
   chival.lobby.adminboard:
+    default: false
+  chival.lobby.build:
+    default: false
+  chival.lobby.spawn-other:
     default: false
